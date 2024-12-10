@@ -16,3 +16,14 @@ drawBtn.addEventListener('click', () => {
         reader.readAsText(file);
     }
 });
+
+function processInput(lines) {
+    const n = parseInt(lines[0]);
+    const segments = [];
+    for (let i = 1; i <= n; i++) {
+        const coords = lines[i].split(' ').map(Number);
+        segments.push(coords);
+    }
+    const clipRect = lines[n + 1].split(' ').map(Number);
+    draw(segments, clipRect);
+}
